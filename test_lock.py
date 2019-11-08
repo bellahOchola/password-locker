@@ -13,4 +13,11 @@ for user login and signup details.
         '''
         method to run before each test case.
         ''''
-        self.new_user = User('ocholaB','ochola@1990') 
+        self.new_user = User('ocholaB','ochola@1990')
+    
+    def test_init(self):
+        '''
+        tests if the object is initialized in the right way
+        '''
+        self.assertEqual(self.new_user.userName,'ocholaB')
+        self.assertEqual(self.new_user.password,'ochola@1990')
