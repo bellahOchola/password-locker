@@ -64,6 +64,13 @@ class TestCredentials(unittest.TestCase):
         '''
         self.new_credentials = Credentials('twitter','twit346')
 
+    def tearDown(self):
+        '''
+        method to run after each test case.
+        '''
+        Credentials.credential_list= []
+
+
     def test_init(self):
         '''
         tests if the object is initialized in the right way
@@ -78,8 +85,8 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.create_credentials()
         self.assertEqual(len(Credentials.credential_list),1)
 
-    def test_view_credentials(self):
-        
+    def test__credentials(self):
+
 
 
 
