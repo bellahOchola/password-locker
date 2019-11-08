@@ -14,6 +14,12 @@ for user login and signup details.
         method to run before each test case.
         '''
         self.new_user = User('ocholaB','ochola@1990')
+
+    def tearDown(self):
+        '''
+        method that is run after each test case
+        '''
+        User.users = []
     
     def test_init(self):
         '''
