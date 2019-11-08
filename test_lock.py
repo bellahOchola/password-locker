@@ -90,9 +90,24 @@ class TestCredentials(unittest.TestCase):
         test that enables user store multiple account credentials
         '''
         self.new_credentials.create_credentials()
-        user1 = User('facebook', 'fbv35')
+        user1 = Credentials('facebook', 'fbv35')
         user1.create_credentials()
         self.assertEqual(len(Credentials.credential_list),2)
+
+    def test_find_credential(self):
+        '''
+        test enables user find the password of a specific account
+        '''
+        self.new_credentials.create_credentials()
+        user1.create_credentials()
+        find_credential = Credentials.find_by_accoutname('twitter')
+        self.assertEqual(find_credential.password,user1.password)
+
+    
+
+        
+
+
 
 
 
