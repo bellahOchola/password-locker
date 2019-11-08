@@ -34,6 +34,17 @@ for user login and signup details.
         '''
         self.new_user.create_account()
         self.assertEqual(len(User.users),1)
+
+    def test_save_multiple_accounts(self):
+        '''
+        checks if we can store multiple accounts 
+        '''
+        self.new_user.create_account()
+        user1 = User('kamau', 'kamau123')
+        user1.create_account()
+        self.assertEqual(len(User.users),2)
+
+
         
 
 if __name__ == '__main__':
