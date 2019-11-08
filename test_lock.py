@@ -44,6 +44,16 @@ for user login and signup details.
         user1.create_account()
         self.assertEqual(len(User.users),2)
 
+    def test_user_existance(self):
+        '''
+        checks if the user details already exist by using their username and passwords
+        '''
+        self.new_user.create_account()
+        user1 = User('kamau', 'kamau123')
+        user1.create_account()
+        find_user = User.login('kamau','kamau123')
+        self.assertTrue(find_user)
+
 
         
 
