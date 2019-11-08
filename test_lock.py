@@ -30,7 +30,7 @@ for user login and signup details.
 
     def test_create_account(self):
         '''
-        tests 
+        tests that enables user sign up to the application
         '''
         self.new_user.create_account()
         self.assertEqual(len(User.users),1)
@@ -58,7 +58,31 @@ class TestCredentials(unittest.TestCase):
     '''
     class that enables user view their credentials, delete and even create new ones
     '''
-    
+    def setUp(self):
+        '''
+        method to run before each test case.
+        '''
+        self.new_credentials = Credentials('twitter','twit346')
+
+    def test_init(self):
+        '''
+        tests if the object is initialized in the right way
+        '''
+        self.assertEqual(self.new_credentials.account_name,'twitter')
+        self.assertEqual(self.new_credentials.password,'twit346')
+
+    def test_create_credentials(self):
+        '''
+        this test enables user to create new account credentials
+        '''
+        self.new_credentials.create_credentials()
+        self.assertEqual(len(Credentials.credential_list),1)
+
+    def test_view_credentials(self):
+        
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
