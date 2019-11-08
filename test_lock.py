@@ -103,7 +103,14 @@ class TestCredentials(unittest.TestCase):
         find_credential = Credentials.find_by_accoutname('twitter')
         self.assertEqual(find_credential.password,user1.password)
 
-    
+    def test_display_credential(self):
+        '''
+        this test enables user view their account credentials
+        '''
+        self.assertEqual(Credentials.display_credentials(),Credentials.credential_list)
+
+    def test_delete_credential(self):
+        
 
         
 
