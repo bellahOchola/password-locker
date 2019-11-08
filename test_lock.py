@@ -54,8 +54,11 @@ for user login and signup details.
         find_user = User.login('kamau','kamau123')
         self.assertTrue(find_user)
 
-
-        
+class TestCredentials(unittest.TestCase):
+    '''
+    class that enables user view their credentials, delete and even create new ones
+    '''
+    
 
 if __name__ == '__main__':
     unittest.main()
