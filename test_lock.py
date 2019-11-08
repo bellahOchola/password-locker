@@ -85,7 +85,14 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.create_credentials()
         self.assertEqual(len(Credentials.credential_list),1)
 
-    def test__credentials(self):
+    def test_save_multiple_credentials(self):
+        '''
+        test that enables user store multiple account credentials
+        '''
+        self.new_credentials.create_credentials()
+        user1 = User('facebook', 'fbv35')
+        user1.create_credentials()
+        self.assertEqual(len(Credentials.credential_list),2)
 
 
 
