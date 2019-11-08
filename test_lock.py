@@ -8,3 +8,9 @@ for user login and signup details.
     Args:
         unittest.TestCase: TestCase class aids in the formation of test cases
     '''
+
+    def setUp(self):
+        '''
+        method to run before each test case.
+        ''''
+        self.new_user = User('ocholaB','ochola@1990') 
