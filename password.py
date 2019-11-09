@@ -19,10 +19,6 @@ class User:
                 return True
 
         return False
-     
-
-
-    pass
 
 class Credentials:
     credential_list = []
@@ -30,4 +26,8 @@ class Credentials:
     def __init__(self, account_name, password):
         self.account_name = account_name
         self.password = password
-    pass
+    
+    def create_credentials(self):
+        Credentials.credential_list.append(self)
+
+    
