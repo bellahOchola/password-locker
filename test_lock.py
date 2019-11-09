@@ -4,7 +4,7 @@ from password import *
 class TestUser(unittest.TestCase):
     '''
     This is a test class that defines test cases 
-for user login and signup details.
+    for user login and signup details.
     Args:
         unittest.TestCase: TestCase class aids in the formation of test cases
     '''
@@ -19,7 +19,7 @@ for user login and signup details.
         '''
         method that is run after each test case
         '''
-        User.users = []
+        User.users_list = []
     
     def test_init(self):
         '''
@@ -33,7 +33,7 @@ for user login and signup details.
         tests that enables user sign up to the application
         '''
         self.new_user.create_account()
-        self.assertEqual(len(User.users),1)
+        self.assertEqual(len(User.users_list),1)
 
     def test_save_multiple_accounts(self):
         '''
@@ -42,7 +42,7 @@ for user login and signup details.
         self.new_user.create_account()
         user1 = User('kamau', 'kamau123')
         user1.create_account()
-        self.assertEqual(len(User.users),2)
+        self.assertEqual(len(User.users_list),2)
 
     def test_user_existance(self):
         '''
@@ -91,7 +91,7 @@ class TestCredentials(unittest.TestCase):
         '''
         self.new_credentials.create_credentials()
         user1 = Credentials('facebook', 'fbv35')
-        user1.create_credentials()
+        user1.save_credentials()
         self.assertEqual(len(Credentials.credential_list),2)
 
     def test_find_credential(self):
@@ -99,7 +99,7 @@ class TestCredentials(unittest.TestCase):
         test enables user find the password of a specific account
         '''
         self.new_credentials.create_credentials()
-        user1.create_credentials()
+        user1.save_credentials()
         find_credential = Credentials.find_by_accoutname('twitter')
         self.assertEqual(find_credential.password,user1.password)
 
@@ -110,15 +110,12 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(Credentials.display_credentials(),Credentials.credential_list)
 
     def test_delete_credential(self):
-        
-
-        
-
-
-
-
-
-
+        '''
+        test allows user delete a given accounts credentials
+        '''
+        self.new_credentials.save_credentials()
+        self.new_credentials.delete_credential()
+        self.assertEqual(len(Credentials.credential_list),0)
 
 if __name__ == '__main__':
     unittest.main()
