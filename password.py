@@ -27,7 +27,7 @@ class Credentials:
         self.account_name = account_name
         self.password = password
     
-    def create_credentials(self):
+    def save_credential(self):
         Credentials.credential_list.append(self)
 
     def delete_credential(self):
