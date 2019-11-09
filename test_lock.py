@@ -91,7 +91,7 @@ class TestCredentials(unittest.TestCase):
         '''
         self.new_credentials.create_credentials()
         user1 = Credentials('facebook', 'fbv35')
-        user1.save_credentials()
+        user1.create_credentials()
         self.assertEqual(len(Credentials.credential_list),2)
 
     def test_find_credential(self):
@@ -99,8 +99,9 @@ class TestCredentials(unittest.TestCase):
         test enables user find the password of a specific account
         '''
         self.new_credentials.create_credentials()
-        user1.save_credentials()
-        find_credential = Credentials.find_by_accoutname('twitter')
+        user1 = Credentials('facebook', 'fbv35')
+        user1.create_credentials()
+        find_credential = Credentials.find_by_accountname('facebook')
         self.assertEqual(find_credential.password,user1.password)
 
     def test_display_credential(self):
@@ -113,7 +114,7 @@ class TestCredentials(unittest.TestCase):
         '''
         test allows user delete a given accounts credentials
         '''
-        self.new_credentials.save_credentials()
+        self.new_credentials.create_credentials()
         self.new_credentials.delete_credential()
         self.assertEqual(len(Credentials.credential_list),0)
 

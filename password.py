@@ -30,4 +30,23 @@ class Credentials:
     def create_credentials(self):
         Credentials.credential_list.append(self)
 
-    
+    def delete_credential(self):
+        Credentials.credential_list.remove(self)
+
+    @classmethod
+    def display_credentials(cls):
+        '''
+        method returns the credentials list
+        '''
+        return cls.credential_list
+
+    @classmethod
+    def find_by_accountname(cls,account_name):
+        '''
+        this method returns the password of the account entered
+        '''
+        for credentials in cls.credential_list:
+            if credentials.account_name == account_name :
+                return credentials
+        
+
