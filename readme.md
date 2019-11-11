@@ -12,7 +12,7 @@ This application enables user login to the site or simply create an account if t
 ## BDD
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
-|Open the application on the terminal | Run the command ```$ ./interface.py```|Hello Welcome to your Accounts Password Store... <br>* CA ---  Create New Account * LO ---  Have An Account |
+|Open the application on the terminal | Run the command ```$ ./run.py```|Hello Welcome to your Accounts Password Store... <br>* CA ---  Create New Account * LO ---  Have An Account |
 |Select  CA| input username and password| Hello ```username```, Your account has been created succesfully! Your password is: ```password```|
 |Select LO  | Enter your password and username you signed up with| Abbreviations menu to help you navigate through the application|
 |Store a new credential in the application| Enter ```CC```|Enter Account, username, password
