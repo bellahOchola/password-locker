@@ -1,5 +1,7 @@
 #!/usr/bin/env python3.6
 from password import *
+import string
+import random
 
 def create_account(user_name, password):
     '''
@@ -20,11 +22,11 @@ def find_user(user_name, password):
     '''
     return User.login(user_name, password)
 
-def create_credentials(account_name, password):
+def create_credentials(account_name,user_name, password):
     '''
     function that create accounts credentials
     '''
-    new_credential = Credentials(account_name, password)
+    new_credential = Credentials(account_name,user_name, password)
     return new_credential
 
 def save_credentials(credential):
@@ -33,11 +35,11 @@ def save_credentials(credential):
     '''
     credential.save_credential()
 
-def generate_password():
+def generate_password(password_length):
     '''
     function that generates password for the user
     '''
-    
+    return ''.join(random.choice(string.ascii_letters+string.digits) for i in range(password_length) )
 
 
 def display_credentials():
@@ -102,10 +104,18 @@ def main():
             # print('Enter the account name and password')
             print('Name of account:')
             account_name = input()
-            print('Account password:')
-            password = input ()
-            print(f'Your {account_name} account has been successfully created.')
-            save_credentials(create_credentials(account_name,password))
+            print('Would you like to have a password generated for you? y/n')
+            option = input()
+            if option == 'y':
+                print('Enter preferred password length')
+                password_length = int(input())
+                password = generate_password(password_length)
+                print(f'Your {account_name} password is {password}')
+            elif option == 'n':
+                print('Account password:')
+                password = input ()
+                print(f'Your {account_name} account has been successfully created.')
+            save_credentials(create_credentials(account_name,user_name,password))
             print('-' * 100)
 
         elif short_code == 'vc':
