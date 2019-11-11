@@ -25,6 +25,7 @@ class Credentials:
     
     def __init__(self, account_name, password):
         self.account_name = account_name
+        self.
         self.password = password
     
     def save_credential(self):
@@ -49,4 +50,3 @@ class Credentials:
             if credentials.account_name == account_name :
                 return credentials
         
-

@@ -76,6 +76,7 @@ class TestCredentials(unittest.TestCase):
         tests if the object is initialized in the right way
         '''
         self.assertEqual(self.new_credentials.account_name,'twitter')
+        self.assertEqual(self.new_credentials.user_name,'bellah')
         self.assertEqual(self.new_credentials.password,'twit346')
 
     def test_create_credentials(self):
@@ -90,7 +91,7 @@ class TestCredentials(unittest.TestCase):
         test that enables user store multiple account credentials
         '''
         self.new_credentials.create_credentials()
-        user1 = Credentials('facebook', 'fbv35')
+        user1 = Credentials('facebook','john', 'fbv35')
         user1.create_credentials()
         self.assertEqual(len(Credentials.credential_list),2)
 
@@ -99,7 +100,7 @@ class TestCredentials(unittest.TestCase):
         test enables user find the password of a specific account
         '''
         self.new_credentials.create_credentials()
-        user1 = Credentials('facebook', 'fbv35')
+        user1 = Credentials('facebook', 'john',fbv35')
         user1.create_credentials()
         find_credential = Credentials.find_by_accountname('facebook')
         self.assertEqual(find_credential.password,user1.password)
