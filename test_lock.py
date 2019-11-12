@@ -62,7 +62,7 @@ class TestCredentials(unittest.TestCase):
         '''
         method to run before each test case.
         '''
-        self.new_credentials = Credentials('twitter','twit346')
+        self.new_credentials = Credentials('twitter','bellah','twit346')
 
     def tearDown(self):
         '''
@@ -83,26 +83,25 @@ class TestCredentials(unittest.TestCase):
         '''
         this test enables user to create new account credentials
         '''
-        self.new_credentials.create_credentials()
+        self.new_credentials.save_credential()
         self.assertEqual(len(Credentials.credential_list),1)
 
     def test_save_multiple_credentials(self):
         '''
         test that enables user store multiple account credentials
         '''
-        self.new_credentials.create_credentials()
+        self.new_credentials.save_credential()
         user1 = Credentials('facebook','john', 'fbv35')
-        user1.create_credentials()
+        user1.save_credential()
         self.assertEqual(len(Credentials.credential_list),2)
 
     def test_find_credential(self):
         '''
         test enables user find the password of a specific account
         '''
-        self.new_credentials.create_credentials()
-        user1 = Credentials('facebook', 'john
-        ',fbv35')
-        user1.create_credentials()
+        self.new_credentials.save_credential()
+        user1 = Credentials('facebook', 'john','fbv35')
+        user1.save_credential()
         find_credential = Credentials.find_by_accountname('facebook')
         self.assertEqual(find_credential.password,user1.password)
 
@@ -116,7 +115,7 @@ class TestCredentials(unittest.TestCase):
         '''
         test allows user delete a given accounts credentials
         '''
-        self.new_credentials.create_credentials()
+        self.new_credentials.save_credential()
         self.new_credentials.delete_credential()
         self.assertEqual(len(Credentials.credential_list),0)
 
